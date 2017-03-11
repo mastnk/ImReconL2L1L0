@@ -1,4 +1,24 @@
-function recon = gryImReconL2L1L0( L2, L1, L0, range, padsize, rho, itr, th, x0 )
+function recon = gryImReconL2L1L0( L2, L1, L0, range, padsize, x0, rho, itr, th, verbose )
+
+if( ~exist('verbose', 'var') || isempty(verbose) )
+ verbose = 0;
+end
+
+if( ~exist('rho', 'var') || isempty(rho) )
+ rho = 1;
+end
+
+if( ~exist('range', 'var') || isempty(range) )
+ range = [-inf,inf];
+end
+
+if( ~exist('itr', 'var') || isempty(itr) )
+ itr = 128;
+end
+
+if( ~exist('th', 'var') || isempty(th) )
+ th = 1E-3;
+end
 
 L2num = numel(L2);
 L1num = numel(L1);
@@ -126,7 +146,10 @@ for it=1:itr
  cost0 = cost;
  cost = costEvaluation(urecon, L2, L1, L0);
  
- fprintf('%03d %g\n', it, cost );
+ if( verbose > 0 )
+  fprintf('%03d %g\n', it, cost );
+ end
+ 
  if( abs(cost0-cost)/cost0 < th )
     break;
  end
