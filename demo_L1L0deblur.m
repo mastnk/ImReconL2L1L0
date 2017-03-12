@@ -1,13 +1,17 @@
 img = double(imread('imgs/girl.png'));
 
-L1lambdas = [0, 10, 50, 100];
+mot = fspecial('motion', 9, deg2rad(-30));
+blr = imfilter( img, mot, 'replicate');
+blr = blr + randn(size(blr)) * 3;
+
+L1lambdas = [1, 2, 4, 8];
 L0lambdas = L1lambdas .^ 2;
 out = cell(numel(L1lambdas), numel(L0lambdas));
 for i=1:numel(L1lambdas)
  for j=1:numel(L0lambdas)
   fprintf('.');
-  out{i,j} = L1L0filter( img, L1lambdas(i), L0lambdas(j) );
-  imwrite(uint8(out{i,j}), sprintf('imgs/demo_L1L0filter_%d_%d.png', i, j ) );
+  out{i,j} = L1L0deblur( img, mot, L1lambdas(i), L0lambdas(j) );
+  imwrite(uint8(out{i,j}), sprintf('imgs/demo_L1L0deblur_%d_%d.png', i, j ) );
  end
 end
 fprintf('\n');
