@@ -1,4 +1,4 @@
-function recon = gryImReconL2L1L0( L2, L1, L0, range, padsize, x0, rho, itr, th, verbose )
+function recon = ImReconL2L1L0( L2, L1, L0, range, padsize, x0, rho, itr, th, verbose )
 
 if( ~exist('verbose', 'var') || isempty(verbose) )
  verbose = 0;
