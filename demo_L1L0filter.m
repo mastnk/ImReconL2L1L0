@@ -13,11 +13,10 @@ end
 fprintf('\n');
 
 k = 1;
-for i=1:numel(L1lambdas)
- for j=1:numel(L0lambdas)
-  subplot(numel(L1lambdas), numel(L0lambdas), k);
-  imshow( uint8(imresize(out{i,j}, 2, 'nearest')) );
+for i=1:numel(L2lambdas)
+ for j=1:numel(L1lambdas)
+  subplot(numel(L2lambdas), numel(L1lambdas), k);
+  imshow( uint8(out{i,j}) );
   k = k + 1;
  end
 end
-
