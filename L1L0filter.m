@@ -1,4 +1,4 @@
-function dst = L1L10filter( src, L1lambda, L2lambda, padsize, range, itr, th, rho, verbose )
+function dst = L1L10filter( src, L1lambda, L0lambda, padsize, range, itr, th, rho, verbose )
 
 if( ~exist('range', 'var') || isempty(range) )
  padsize = [8, 8];
@@ -42,7 +42,7 @@ for i=1:2
  L1{i}.lambda = L1lambda;
  
  L0{i}.k = ker{i};
- L0{i}.lambda = L2lambda;
+ L0{i}.lambda = L0lambda;
 end
 
 dst = ImReconL2L1L0( L2, L1, L0, range, padsize, src, rho, itr, th, verbose );
