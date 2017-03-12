@@ -1,34 +1,5 @@
-% L2L1enhance enhance image 
-%
-% dst = L2L1enhance( src, alpha, L2lambda, L1lambda, padsize, range, itr, th, rho, verbose 
-%
-%Output arguments:
-% dst: output enhanced image
-%
-%Input arguments:
-% src: input blurred image
-% alpha: enhance parameter
-% L1lambda: constraint parameter for L1 norm
-% L0lambda: constraint parameter for L0 norm
-% padsize: padding size (default: [18, 18])
-% range: intensity range (default: [-inf, inf])
-% itr: max iteration number (default: 128)
-% th: stoping critera (default: 1E-3)
-% rho: parameter for the ADMM (default: 1)
-% verbose: 0:silent, 1:print information (default: 0)
-%
-%Example:
-%  img = double(imread('lena.png'));
-%  out = L1L0enhance( img, alpha, L1lambda, L0lambda );
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                          %
-% Copyright (C) 2017                                       %
-%                    Masayuki Tanaka. All rights reserved. %
-%                    mtanaka@sc.e.titech.ac.jp             %
-%                                                          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function dst = L2L1enhance( src, alpha, L2lambda, L1lambda, padsize, range, itr, th, rho, verbose )
+
 if( ~exist('range', 'var') || isempty(range) )
  padsize = [8, 8];
 end

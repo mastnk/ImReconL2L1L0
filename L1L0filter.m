@@ -1,32 +1,3 @@
-% L1L10filter filters input image with gradient L1 and L0 norm constraint
-%
-% dst = L1L10filter( src, L1lambda, L0lambda, padsize, range, itr, th, rho, verbose )
-%
-%Output arguments:
-% dst: output filtered image
-%
-%Input arguments:
-% src: input blurred image
-% L1lambda: constraint parameter for L1 norm
-% L0lambda: constraint parameter for L0 norm
-% padsize: padding size (default: [18, 18])
-% range: intensity range (default: [-inf, inf])
-% itr: max iteration number (default: 128)
-% th: stoping critera (default: 1E-3)
-% rho: parameter for the ADMM (default: 1)
-% verbose: 0:silent, 1:print information (default: 0)
-%
-%Example:
-%  img = double(imread('lena.png'));
-%  out = L1L0filter( img, L1lambda, L0lambda );
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                          %
-% Copyright (C) 2017                                       %
-%                    Masayuki Tanaka. All rights reserved. %
-%                    mtanaka@sc.e.titech.ac.jp             %
-%                                                          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function dst = L1L10filter( src, L1lambda, L0lambda, padsize, range, itr, th, rho, verbose )
 
 if( ~exist('range', 'var') || isempty(range) )

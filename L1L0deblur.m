@@ -1,34 +1,3 @@
-% L1L10deblur deblurs input image with gradient L1 and L0 norm constraint
-%
-% dst = L1L10deblur( src, blrker, L1lambda, L0lambda, padsize, range, itr, th, rho, verbose )
-%
-%Output arguments:
-% dst: output deblurred image
-%
-%Input arguments:
-% src: input blurred image
-% blrker: blur kernel
-% L1lambda: constraint parameter for L1 norm
-% L0lambda: constraint parameter for L0 norm
-% padsize: padding size (default: [18, 18])
-% range: intensity range (default: [-inf, inf])
-% itr: max iteration number (default: 128)
-% th: stoping critera (default: 1E-3)
-% rho: parameter for the ADMM (default: 1)
-% verbose: 0:silent, 1:print information (default: 0)
-%
-%Example:
-%  img = double(imread('lena.png'));
-%  mot = fspecial('motion', 9, deg2rad(-30));
-%  out = L1L0deblur( img, mot, L1lambda, L0lambda );
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                          %
-% Copyright (C) 2017                                       %
-%                    Masayuki Tanaka. All rights reserved. %
-%                    mtanaka@sc.e.titech.ac.jp             %
-%                                                          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function dst = L1L10deblur( src, blrker, L1lambda, L0lambda, padsize, range, itr, th, rho, verbose )
 
 if( ~exist('range', 'var') || isempty(range) )

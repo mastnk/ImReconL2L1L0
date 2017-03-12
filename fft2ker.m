@@ -2,24 +2,30 @@
 %
 % K = fft2ker( ker, imgsize )
 %
+%
 %Output parameter:
 % K: Fourier transform of the kernel
+%
 %
 %Input parameters:
 % ker : the kernel matrix whose size must be the odd number
 % imgsize: the size of the image to be processed
+%
 %
 %Example:
 % ker = zeros(3,3);
 % ker(1,:) = 1/3;
 % imgsize = [256, 256];
 % K = fft2ker( ker, imgsize );
+%
+%
+%Version: 20160831
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Utilities for FFT                                        %
 %                                                          %
-% Copyright (C) 2017                                       %
-%                    Masayuki Tanaka. All rights reserved. %
-%                    mtanaka@sc.e.titech.ac.jp             %
+% Copyright (C) 2016 Masayuki Tanaka. All rights reserved. %
+%                    mtanaka@ctrl.titech.ac.jp             %
 %                                                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function K = fft2ker( ker, imgsize )
