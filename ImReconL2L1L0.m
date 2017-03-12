@@ -1,3 +1,29 @@
+% ImReconL2L1L0 provides a unified optimization framework
+%
+% recon = ImReconL2L1L0( L2, L1, L0, range, padsize, x0, rho, itr, th, verbose )
+%
+%Output arguments:
+% recon: reconstructed image
+%
+%Input arguments:
+% L2: cell list for L2 norm functions
+% L1: cell list for L1 norm functions
+% L0: cell list for L0 norm functions
+% range: intensity range (default: [-inf, inf])
+% padsize: padding size (ex. [18, 18])
+% x0: initial image 
+% rho: parameter for the ADMM (default: 1)
+% itr: max iteration number (default: 128)
+% th: stoping critera (default: 1E-3)
+% verbose: 0:silent, 1:print information (default: 0)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                          %
+% Copyright (C) 2017                                       %
+%                    Masayuki Tanaka. All rights reserved. %
+%                    mtanaka@sc.e.titech.ac.jp             %
+%                                                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function recon = ImReconL2L1L0( L2, L1, L0, range, padsize, x0, rho, itr, th, verbose )
 
 if( ~exist('verbose', 'var') || isempty(verbose) )
@@ -162,6 +188,7 @@ end
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function cost = costEvaluation(x, L2, L1, L0)
 
 cost = 0;
@@ -188,5 +215,25 @@ for i=1:numel(L0)
 end
 
 cost = cost / numel(x);
+
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function X = SolveQFormFreq( Ks, LCKs, Ys )
+
+s = size(Ys);
+X = zeros(s(1), s(2), s(3));
+
+for j=1:s(3)
+
+ K2 = LCKs .* Ks;
+ K2 = sum( K2, 4 );
+
+ YK = LCKs .* Ys(:,:,j,:);
+ YK = sum( YK, 4 );
+
+ X(:,:,j) = YK ./ K2;
+
+end
 
 end

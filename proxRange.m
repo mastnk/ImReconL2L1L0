@@ -1,3 +1,21 @@
+% proximal operator of range constrant
+%
+% y = proxRange( x, range )
+%
+%Output parameter:
+% y: output
+%
+%Input parameters:
+% x: input
+% range: [min_value, max_value] or [min_image, max_image]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                          %
+% Copyright (C) 2017                                       %
+%                    Masayuki Tanaka. All rights reserved. %
+%                    mtanaka@sc.e.titech.ac.jp             %
+%                                                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function y = proxRange( x, range )
 
 y = x;

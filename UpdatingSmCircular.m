@@ -1,33 +1,28 @@
-% fft2ker calcuate the FFT transform for the kernel of the convolution
+% seamless padding
 %
-% dst = PaddingSmCircular( src, padsize, itrMax, th, al )
-%
+% dst = UpdatingSmCircular( paddedsrc, padsize, itrMax, th, al )
 %
 %Output parameter:
 % dst: padded output image
 %
-%
 %Input parameters:
-% src : input image
+% paddedsrc : padded input image
 % padsize : padding size
 % itrMax : max iteration number (default: 30)
 % th : threshold ofr the stopping criteria (default: 1E-3)
 % al : alpha (default: 1.9)
 %
-%
 %Example:
 % img = double(imread('img.jpg'));
 % padsize = [8, 8];
 % img_padding = PaddingSmCircular( img, padsize );
-%
-%
-%Version: 20160831
+% img_padding = UpdatingSmCircular( img_padding, padsize );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Utilities for FFT                                        %
 %                                                          %
-% Copyright (C) 2017 Masayuki Tanaka. All rights reserved. %
-%                    mtanaka@ctrl.titech.ac.jp             %
+% Copyright (C) 2017                                       %
+%                    Masayuki Tanaka. All rights reserved. %
+%                    mtanaka@sc.e.titech.ac.jp             %
 %                                                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function dst = UpdatingSmCircular( paddedsrc, padsize, itrMax, th, al )
