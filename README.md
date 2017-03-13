@@ -27,7 +27,9 @@ Run demo for L2L1enhance.
 
 ## Functions
 
+Each function includes own help. Please try like
 
+``` % help ImReconL2L1L0 ```
 
 ## Requirement
 
@@ -35,12 +37,12 @@ Image processing tool box.
 
 ## Links
 
-[Author's github](https://github.com/likesilkto)
+[Author's github](https://github.com/mastnk/)
 
 [Author's Page](http://www.ok.sc.e.titech.ac.jp/~mtanaka/)
 
-[Project Page](http://www.ok.sc.e.titech.ac.jp/res/IC/ImReconProx/)
+[Research Project Page](http://www.ok.sc.e.titech.ac.jp/res/IC/ImReconProx/)
 
 ## License
 
-[MIT](https://github.com/likesilkto/tool/blob/master/LICENSE)
+[MIT](https://github.com/mastnk/tool/blob/master/LICENSE)
