@@ -13,16 +13,16 @@ Proceedings of SPIE Defense + Commercial Sensing (DCS2017), April, 2017.
 
 ## Demo
 
-** demo.m ** :
+**demo.m** :
 Run all demo
 
-** demo_L1L0filter.m ** :
+**demo_L1L0filter.m** :
 Run demo for L1L0filter.
 
-** demo_L1L0deblur.m ** :
+**demo_L1L0deblur.m** :
 Run demo for L1L0deblur.
 
-** demo_L2L1enhance ** :
+**demo_L2L1enhance** :
 Run demo for L2L1enhance.
 
 ## Functions
@@ -37,9 +37,11 @@ Image processing tool box.
 
 ## Links
 
+[Author's Page](http://www.ok.sc.e.titech.ac.jp/~mtanaka/)
+
 [Author's github](https://github.com/mastnk/)
 
-[Author's Page](http://www.ok.sc.e.titech.ac.jp/~mtanaka/)
+[Author's matlab file exchange](https://www.mathworks.com/matlabcentral/profile/authors/3502213)
 
 [Research Project Page](http://www.ok.sc.e.titech.ac.jp/res/IC/ImReconProx/)
 
